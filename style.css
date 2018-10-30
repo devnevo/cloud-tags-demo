@@ -44,12 +44,13 @@ h1 {
   margin-right: 50px;
 }
 .buttonsRow {
-  margin-bottom: 30px;
+  margin-top: 30px;
+  justify-content: center;
 }
 .app-inner {
   display: flex;
   flex-direction: row;
-  height: 60%;
+  height: 50%;
   max-width: 1200px;
   width: 100%;
 }
