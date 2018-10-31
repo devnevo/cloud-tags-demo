@@ -33,9 +33,7 @@ class App extends Component {
               type="button"
               onClick={() => {
                 if (this.state.items !== items2016) {
-                  this.setState({ items: items2016 }, () => {
-                    this.forceUpdate();
-                  });
+                  this.setState(state => ({ items: items2016 }));
                 }
               }}
               className="btn btn-primary"
@@ -46,9 +44,7 @@ class App extends Component {
               type="button"
               onClick={() => {
                 if (this.state.items !== items2017) {
-                  this.setState({ items: items2017 }, () => {
-                    this.forceUpdate();
-                  });
+                  this.setState(state => ({ items: items2017 }));
                 }
               }}
               className="btn btn-primary"
@@ -59,7 +55,7 @@ class App extends Component {
               type="button"
               onClick={() => {
                 if (this.state.items !== items2018) {
-                  this.setState({ items: items2018 }, () => this.forceUpdate());
+                  this.setState(state => ({ items: items2018 }));
                 }
               }}
               className="btn btn-primary"
@@ -78,7 +74,10 @@ class App extends Component {
                   randomColor({
                     luminosity: "dark"
                   }),
-                padding: 25
+                padding: 10,
+                width: "100%",
+                height: "100%",
+                flex: 1
               }}
             >
               {this.state.items.map(item => (
