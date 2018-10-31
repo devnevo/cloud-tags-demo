@@ -3,7 +3,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  font-smooth: always;
   margin: 0;
   padding: 0;
 }
@@ -16,9 +15,11 @@ body {
   margin-top: -24px;
   margin-bottom: -50px;
 }
+
 .landing-inner {
   height: inherit;
 }
+
 h1 {
   font-size: 3rem;
   letter-spacing: 1px;
@@ -40,13 +41,17 @@ h1 {
   right: 0;
   top: 0;
 }
+
 .btn-primary {
   margin-right: 50px;
 }
+
 .buttonsRow {
-  margin-top: 30px;
+  margin-top: 60px;
+  margin-bottom: 30px;
   justify-content: center;
 }
+
 .app-inner {
   display: flex;
   flex-direction: row;

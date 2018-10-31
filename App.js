@@ -5,19 +5,25 @@ import items2018 from "./2018";
 import items2017 from "./2017";
 import items2016 from "./2016";
 
-const min = items.reduce(
-  (min, p) => (p.count < min ? p.count : min),
-  items[0].count
-);
-
-const max = items.reduce(
-  (max, p) => (p.count > max ? p.count : max),
-  items[0].count
-);
 class App extends Component {
-  constructor() {
-    this.items = items2018;
+  constructor(props) {
+    super(props);
+    this.state = { items: items2018 };
   }
+  // min() {
+  //   this.state.items.reduce(
+  //     (min, p) => (p.count < min ? p.count : min),
+  //     this.state.items[0].count
+  //   );
+  // }
+
+  // max() {
+  //   this.state.items.reduce(
+  //     (max, p) => (p.count > max ? p.count : max),
+  //     this.state.items[0].count
+  //   );
+  // }
+
   render() {
     return (
       <div className="landing">
@@ -26,8 +32,11 @@ class App extends Component {
             <button
               type="button"
               onClick={() => {
-                this.items = items2016;
-                this.forceUpdate();
+                if (this.state.items !== items2016) {
+                  this.setState({ items: items2016 }, () => {
+                    this.forceUpdate();
+                  });
+                }
               }}
               className="btn btn-primary"
             >
@@ -36,8 +45,11 @@ class App extends Component {
             <button
               type="button"
               onClick={() => {
-                this.items = items2017;
-                this.forceUpdate();
+                if (this.state.items !== items2017) {
+                  this.setState({ items: items2017 }, () => {
+                    this.forceUpdate();
+                  });
+                }
               }}
               className="btn btn-primary"
             >
@@ -46,8 +58,9 @@ class App extends Component {
             <button
               type="button"
               onClick={() => {
-                this.items = items2018;
-                this.forceUpdate();
+                if (this.state.items !== items2018) {
+                  this.setState({ items: items2018 }, () => this.forceUpdate());
+                }
               }}
               className="btn btn-primary"
             >
@@ -68,14 +81,10 @@ class App extends Component {
                 padding: 25
               }}
             >
-              {items.map(item => (
+              {this.state.items.map(item => (
                 <div
                   style={{
-                    fontSize:
-                      parseFloat((item.count - min) / (max - min)) *
-                        (35 - 15) *
-                        1 +
-                      15
+                    fontSize: Math.log(item.count) * 3
                   }}
                 >
                   {item.name}
